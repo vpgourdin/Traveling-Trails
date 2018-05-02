@@ -1,0 +1,63 @@
+---
+layout: default
+title: Blog Posts
+banner-image: images/remi.jpg
+---
+<!--STATES CAROUSEL-->
+<h2 class="textCenter">Have We Been To Your State</h2>
+<div class="stateCarousel grid-middle textCenter">
+<div class="owl-carousel">
+<div class="item">
+	<img src="/images/utah2.png" alt="Utah">
+	<a href="/category/utah"> <h4>Utah</h4> </a>
+</div>
+<div class="item">
+	<img src="/images/nevada2.png" alt="Nevada">
+	<a href="/category/nevada"> <h4>Nevada</h4></a>
+</div>
+<div class="item">
+	<img src="/images/idaho2.png" alt="idaho">
+	<a href="/category/idaho"><h4>Idaho</h4></a>
+</div>
+<div class="item">
+	<img src="/images/mt.jpg" alt="Montana">
+	<a href="/category/montana"><h4>Montana</h4></a>
+</div>
+<div class="item">
+	<img src="/images/arizona.jpg" alt="Arizona">
+	<a href="/category/arizona"> <h4>Arizona</h4></a>
+</div>
+</div>
+</div>
+<section class="textCenter">
+	<h2>Most Recent Post</h2>
+	{% for post in site.posts limit:1 %}
+			<div class="col-12">
+				<h4> {{post.title}}</h4>
+				<div class="background-image" style="background-image:url('{{post.pic}}')">
+					</div>
+					<!-- this is a background image -->
+				<p>
+					 {{post.excerpt | truncatewords:30}}
+				</p>
+				<a href="{{post.url}}"> Read More</a>
+
+			</div>
+	{% endfor %}
+</section>
+<section class="textCenter">
+	<div class="grid">
+	{% for post in site.posts % offset: 1 %}
+			<div class="col-6_sm-12_xs-12">
+				<h4> {{post.title}}</h4>
+				<div class="background-image" style="background-image:url('{{post.pic}}')">
+					<!-- this is a background image -->
+				</div>
+				<p>
+					 {{post.excerpt | truncatewords:15}}
+				</p>
+				<a href="{{post.url}}"> Read More</a>
+			</div>
+	{% endfor %}
+</div>
+</section>
